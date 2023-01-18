@@ -18,13 +18,12 @@ function getPics() {
         return data;
     });
 }
-function displayImage() {
+docu.addEventListener("load", (event) => {
     console.log("loaded...");
     const picDiv = document.querySelector(".container");
+    event.preventDefault();
     getPics().then((data) => {
         imageElement.src = data.url;
         picDiv.append(imageElement);
     });
-}
-;
-displayImage();
+});
