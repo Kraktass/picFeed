@@ -13,7 +13,6 @@ async function getPics() {
 function displayImgOne () {
     console.log("loaded...")
     getPics().then((data) => {
-        console.log(data)
         for (let i = 0; i < data.length; i++) {
         const picDiv = document.querySelector(".containerLeft") as HTMLElement;
         const imageElement = document.createElement("img") as HTMLImageElement;
@@ -22,13 +21,11 @@ function displayImgOne () {
         }
     });
 };
-
 displayImgOne();
 
 function displayImgTwo () {
     console.log("loaded...")
     getPics().then((data) => {
-        console.log(data)
         for (let i = 0; i < data.length; i++) {
         const picDiv = document.querySelector(".containerRight") as HTMLElement;
         const imageElement = document.createElement("img") as HTMLImageElement;
@@ -38,7 +35,6 @@ function displayImgTwo () {
         }
     });
 };
-
 displayImgTwo();
 
 
