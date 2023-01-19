@@ -7,28 +7,38 @@ async function getPics() {
     const data = await response.json();
     return data;
 }
-getPics();
 
 
-function displayImg () {
+
+function displayImgOne () {
     console.log("loaded...")
     getPics().then((data) => {
         console.log(data)
         for (let i = 0; i < data.length; i++) {
-        const picDiv = document.querySelector(".container") as HTMLElement;
+        const picDiv = document.querySelector(".containerLeft") as HTMLElement;
         const imageElement = document.createElement("img") as HTMLImageElement;
         imageElement.src = data[i].url;
-        imageElement.style.width = "20%"
-        imageElement.style.height = "20%"
         picDiv.append(imageElement);
         }
     });
 };
 
-displayImg();
+displayImgOne();
 
+function displayImgTwo () {
+    console.log("loaded...")
+    getPics().then((data) => {
+        console.log(data)
+        for (let i = 0; i < data.length; i++) {
+        const picDiv = document.querySelector(".containerRight") as HTMLElement;
+        const imageElement = document.createElement("img") as HTMLImageElement;
+        imageElement.src = data[i].url;
 
+        picDiv.append(imageElement);
+        }
+    });
+};
 
-
+displayImgTwo();
 
 

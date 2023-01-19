@@ -51,20 +51,31 @@ function getPics() {
         });
     });
 }
-getPics();
-function displayImg() {
+function displayImgOne() {
     console.log("loaded...");
     getPics().then(function (data) {
         console.log(data);
         for (var i = 0; i < data.length; i++) {
-            var picDiv = document.querySelector(".container");
+            var picDiv = document.querySelector(".containerLeft");
             var imageElement = document.createElement("img");
             imageElement.src = data[i].url;
-            imageElement.style.width = "15%";
-            imageElement.style.height = "15%";
             picDiv.append(imageElement);
         }
     });
 }
 ;
-displayImg();
+displayImgOne();
+function displayImgTwo() {
+    console.log("loaded...");
+    getPics().then(function (data) {
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+            var picDiv = document.querySelector(".containerRight");
+            var imageElement = document.createElement("img");
+            imageElement.src = data[i].url;
+            picDiv.append(imageElement);
+        }
+    });
+}
+;
+displayImgTwo();

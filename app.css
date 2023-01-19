@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+}
+
+.parentContainer {
+    display: flex;
+    justify-content: center;
+    background-color: #fb88d2;
+    background-image: linear-gradient(62deg, #fb88d2 0%, #F7CE68 100%);
+}
+
+
+img {
+    display: flex;
+    width:100%;
+    max-width:550px;
+    border-radius: 10px;
+    margin: 18px 9px;
+    box-shadow: 4px 4px 20px;
+}
+
+
+
+
