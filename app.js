@@ -60,6 +60,8 @@ function displayImg() {
             var picDiv = document.querySelector(".container");
             var imageElement = document.createElement("img");
             imageElement.src = data[i].url;
+            imageElement.style.width = "15%";
+            imageElement.style.height = "15%";
             picDiv.append(imageElement);
         }
     });

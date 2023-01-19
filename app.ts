@@ -18,6 +18,8 @@ function displayImg () {
         const picDiv = document.querySelector(".container") as HTMLElement;
         const imageElement = document.createElement("img") as HTMLImageElement;
         imageElement.src = data[i].url;
+        imageElement.style.width = "20%"
+        imageElement.style.height = "20%"
         picDiv.append(imageElement);
         }
     });
