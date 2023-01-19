@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const url = 'https://picsum.photos/v2/list?page=1&limit=1';
+const url = 'https://picsum.photos/v2/list?page=2&limit=100';
 const imageElement = document.createElement('img');
 const docu = document.querySelector('document');
 function getPics() {
@@ -18,12 +18,13 @@ function getPics() {
         return data;
     });
 }
-docu.addEventListener("load", (event) => {
+function displayImg() {
     console.log("loaded...");
     const picDiv = document.querySelector(".container");
-    event.preventDefault();
     getPics().then((data) => {
         imageElement.src = data.url;
         picDiv.append(imageElement);
     });
-});
+}
+;
+displayImg();

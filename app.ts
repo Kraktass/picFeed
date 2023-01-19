@@ -1,6 +1,6 @@
 
 
-const url = 'https://picsum.photos/v2/list?page=1&limit=1';
+const url = 'https://picsum.photos/v2/list?page=2&limit=100';
 const imageElement = document.createElement('img') as HTMLImageElement;
 const docu = document.querySelector('document') as HTMLElement;
 
@@ -10,12 +10,14 @@ async function getPics() {
     return data;
 }
 
-docu.addEventListener("load", (event) => {
+
+function displayImg () {
     console.log("loaded...")
     const picDiv = document.querySelector(".container") as HTMLElement;
-    event.preventDefault();
     getPics().then((data) => {
         imageElement.src = data.url;
         picDiv.append(imageElement);
     });
-});
+};
+
+displayImg();
