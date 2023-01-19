@@ -54,12 +54,14 @@ function getPics() {
 getPics();
 function displayImg() {
     console.log("loaded...");
-    var imageElement = document.createElement("img");
-    var picDiv = document.querySelector(".container");
     getPics().then(function (data) {
         console.log(data);
-        imageElement.src = data[0].url;
-        picDiv.append(imageElement);
+        for (var i = 0; i < data.length; i++) {
+            var picDiv = document.querySelector(".container");
+            var imageElement = document.createElement("img");
+            imageElement.src = data[i].url;
+            picDiv.append(imageElement);
+        }
     });
 }
 ;

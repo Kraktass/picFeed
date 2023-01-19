@@ -12,13 +12,15 @@ getPics();
 
 function displayImg () {
     console.log("loaded...")
-    const imageElement = document.createElement("img") as HTMLImageElement;
-    const picDiv = document.querySelector(".container") as HTMLElement;
     getPics().then((data) => {
         console.log(data)
-        imageElement.src = data[0].url;
+        for (let i = 0; i < data.length; i++) {
+        const picDiv = document.querySelector(".container") as HTMLElement;
+        const imageElement = document.createElement("img") as HTMLImageElement;
+        imageElement.src = data[i].url;
         picDiv.append(imageElement);
-    })
+        }
+    });
 };
 
 displayImg();
