@@ -1,7 +1,6 @@
 
-console.log("hej");
-const url = 'https://picsum.photos/v2/list';
-const imageElement = document.createElement("img") as HTMLImageElement;
+const url = 'https://api.thecatapi.com/v1/images/search?limit=10';
+
 
 async function getPics() {
     const response = await fetch(url);
@@ -13,6 +12,7 @@ getPics();
 
 function displayImg () {
     console.log("loaded...")
+    const imageElement = document.createElement("img") as HTMLImageElement;
     const picDiv = document.querySelector(".container") as HTMLElement;
     getPics().then((data) => {
         console.log(data)
@@ -26,5 +26,5 @@ displayImg();
 
 
 
-//tdeAYH8x6N9wVue4xBMgy5vdIgDF64KMT1HvrepyqSQ
+
 

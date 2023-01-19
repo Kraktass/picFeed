@@ -34,9 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-console.log("hej");
-var url = 'https://picsum.photos/v2/list';
-var imageElement = document.createElement("img");
+var url = 'https://api.thecatapi.com/v1/images/search?limit=10';
 function getPics() {
     return __awaiter(this, void 0, void 0, function () {
         var response, data;
@@ -56,6 +54,7 @@ function getPics() {
 getPics();
 function displayImg() {
     console.log("loaded...");
+    var imageElement = document.createElement("img");
     var picDiv = document.querySelector(".container");
     getPics().then(function (data) {
         console.log(data);
