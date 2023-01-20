@@ -30,11 +30,30 @@ function displayImgTwo () {
         const picDiv = document.querySelector(".containerRight") as HTMLElement;
         const imageElement = document.createElement("img") as HTMLImageElement;
         imageElement.src = data[i].url;
-
         picDiv.append(imageElement);
         }
     });
 };
 displayImgTwo();
 
+const infiniteScroll = () => {
+    throttle(() => {
+    const endOfPage = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+    if (endOfPage) {
+        displayImgOne();
+        displayImgTwo();
+    };
+  }, 1000);
+};
 
+window.addEventListener('scroll', infiniteScroll);
+
+let throttleTimer: boolean;
+const throttle = (callback: () => void, time: number | undefined) => {
+  if (throttleTimer) return;
+  throttleTimer = true;
+  setTimeout(() => {
+    callback();
+    throttleTimer = false;
+  }, time);
+};

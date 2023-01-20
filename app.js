@@ -54,7 +54,6 @@ function getPics() {
 function displayImgOne() {
     console.log("loaded...");
     getPics().then(function (data) {
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
             var picDiv = document.querySelector(".containerLeft");
             var imageElement = document.createElement("img");
@@ -68,7 +67,6 @@ displayImgOne();
 function displayImgTwo() {
     console.log("loaded...");
     getPics().then(function (data) {
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
             var picDiv = document.querySelector(".containerRight");
             var imageElement = document.createElement("img");
@@ -79,3 +77,24 @@ function displayImgTwo() {
 }
 ;
 displayImgTwo();
+var infiniteScroll = function () {
+    throttle(function () {
+        var endOfPage = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+        if (endOfPage) {
+            displayImgOne();
+            displayImgTwo();
+        }
+        ;
+    }, 1000);
+};
+window.addEventListener('scroll', infiniteScroll);
+var throttleTimer;
+var throttle = function (callback, time) {
+    if (throttleTimer)
+        return;
+    throttleTimer = true;
+    setTimeout(function () {
+        callback();
+        throttleTimer = false;
+    }, time);
+};
